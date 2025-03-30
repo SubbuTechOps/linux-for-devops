@@ -182,6 +182,7 @@ You should connect successfully without being prompted for a password.
 - Consider using a passphrase when generating your key for additional security
 - The key generation process shown uses ED25519, which is more secure than older RSA-based keys
 
+![SSH Authentication Flow](ssh-authentication-improved.svg)
 
 ---
 
