@@ -405,16 +405,16 @@ sudo fail2ban-client status sshd
 
 ```mermaid
 flowchart TD
-    A[Client] -- "SSH Login Attempt" --> B[Server]
-    B -- "Failed Login" --> C[/var/log/auth.log]
-    C -- "Read Log" --> D[Fail2Ban]
-    D -- "Check Against Rules" --> E{Exceed Threshold?}
-    E -- "Yes" --> F[Add Firewall Rule]
-    F -- "Block IP" --> G[iptables/firewalld]
-    G -- "Connection Blocked" --> A
-    E -- "No" --> H[Continue Monitoring]
-    I[Timer] -- "After bantime" --> J[Remove Firewall Rule]
-    J -- "Unblock IP" --> G
+    A(Client) -->|SSH Login Attempt| B(Server)
+    B -->|Failed Login| C(/var/log/auth.log)
+    C -->|Read Log| D(Fail2Ban)
+    D -->|Check Against Rules| E{Exceed Threshold?}
+    E -->|Yes| F(Add Firewall Rule)
+    F -->|Block IP| G(iptables/firewall)
+    G -->|Connection Blocked| A
+    E -->|No| H(Continue Monitoring)
+    I(Timer) -->|After bantime| J(Remove Firewall Rule)
+    J -->|Unblock IP| G
 ```
 
 ---
