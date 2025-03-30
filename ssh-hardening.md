@@ -182,20 +182,6 @@ You should connect successfully without being prompted for a password.
 - Consider using a passphrase when generating your key for additional security
 - The key generation process shown uses ED25519, which is more secure than older RSA-based keys
 
-```mermaid
-flowchart TD
-    A[Client] -- "1. Connection Request" --> B[Server]
-    B -- "2. Server ID & Public Key" --> A
-    A -- "3. Generate Session Key" --> A
-    A -- "4. Encrypt with Server Public Key" --> A
-    A -- "5. Send Encrypted Session Key" --> B
-    B -- "6. Decrypt with Server Private Key" --> B
-    B -- "7. Challenge Client" --> A
-    A -- "8. Sign Challenge with Client Private Key" --> A
-    A -- "9. Send Signature" --> B
-    B -- "10. Verify Signature with Authorized Keys" --> B
-    B -- "11. Grant Access if Verification Succeeds" --> A
-```
 
 ---
 
